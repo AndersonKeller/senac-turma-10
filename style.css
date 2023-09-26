@@ -48,3 +48,9 @@ button:hover {
   background-color: #242323;
   color: #eee;
 }
+main{
+  display: flex;
+  width: 500px;
+  margin: 0 auto;
+  justify-content: space-between;
+}
