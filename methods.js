@@ -21,4 +21,4 @@ function slice(list=[],index){
 // const res = array.findIndex((item)=>item=="b")
 // console.log(res)
 const res = array.slice(1)
-console.log(res)
+// console.log(res)
