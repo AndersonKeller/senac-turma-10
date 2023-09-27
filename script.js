@@ -68,33 +68,36 @@ const main = document.querySelector("main");
 renderData()
 function cartUpdate(item){
     const cart = document.querySelector(".cart")
+    const text = cart.children[0]
+    text.innerText = "Itens no carrinho"
     const li = document.createElement("li")
-    
     li.innerText = item.name
-
     const btnRemove = document.createElement("button")
     btnRemove.classList.add("btn-remove")
     btnRemove.id = item.name
-    btnRemove.addEventListener('click',()=>{
-        removeItem(item)
-    })
 
+    btnRemove.addEventListener('click',()=>{
+        openModal(item)
+    })
     btnRemove.innerText = "X"
     li.appendChild(btnRemove)
     cart.appendChild(li)
-    // console.log(item)
     
 }
 function removeItem(item){
+    const cart = document.querySelector(".cart")
+    
     const carts = Array.from(document.getElementsByClassName("btn-remove"))
     const index = carts.findIndex((cart)=>{
-        console.log(cart)
         return cart.id == item.name
     })
-    console.log(item)
-
-    console.log(carts[index].parentElement)
+    
     carts[index].parentElement.remove()
+    if(cart.children.length==1){
+        const text = cart.children[0]
+        text.innerText = "Carrinho vazio"
+    }
+    
 }
 function renderData(){
     const ul = document.querySelector(".products")
@@ -112,3 +115,17 @@ function renderData(){
         ul.appendChild(li)
     })
 }
+
+function openModal(item){
+
+    console.log(item,"modal")
+    //button excluir
+    //removeItem(item)
+}
+{/* <div class="modal-wrapper">
+      <div class="modal">
+        <button id="btn-close-modal">X</button>
+        <p>Deseja realmente excluir esse item?</p>
+        <button id="btn-remove-confirm">Excluir</button>
+      </div>
+    </div> */}
