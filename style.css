@@ -54,3 +54,8 @@ main{
   margin: 0 auto;
   justify-content: space-between;
 }
+.cart{
+  overflow-y: auto;
+  height: 400px;
+  overflow-x: hidden;
+}

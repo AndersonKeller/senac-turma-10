@@ -66,6 +66,36 @@
 import { data } from "./data.js";
 const main = document.querySelector("main");
 renderData()
+function cartUpdate(item){
+    const cart = document.querySelector(".cart")
+    const li = document.createElement("li")
+    
+    li.innerText = item.name
+
+    const btnRemove = document.createElement("button")
+    btnRemove.classList.add("btn-remove")
+    btnRemove.id = item.name
+    btnRemove.addEventListener('click',()=>{
+        removeItem(item)
+    })
+
+    btnRemove.innerText = "X"
+    li.appendChild(btnRemove)
+    cart.appendChild(li)
+    // console.log(item)
+    
+}
+function removeItem(item){
+    const carts = Array.from(document.getElementsByClassName("btn-remove"))
+    const index = carts.findIndex((cart)=>{
+        console.log(cart)
+        return cart.id == item.name
+    })
+    console.log(item)
+
+    console.log(carts[index].parentElement)
+    carts[index].parentElement.remove()
+}
 function renderData(){
     const ul = document.querySelector(".products")
     data.forEach((item)=>{
@@ -73,6 +103,11 @@ function renderData(){
         li.innerText = item.name
         const btnAdd = document.createElement("button")
         btnAdd.innerText = "Adicionar"
+
+        btnAdd.addEventListener("click",()=>{
+            cartUpdate(item)
+        })
+
         li.appendChild(btnAdd)
         ul.appendChild(li)
     })
