@@ -28,8 +28,23 @@ li {
   display: flex;
   gap: 16px;
   background-color: #0d0c0c;
-  padding: 8px 16px;
+  overflow: hidden;
   border-radius: 16px;
+  flex-direction: column;
+}
+li .card-texts{
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  width: 100%;
+  align-items: center;
+  gap: 8px;
+  
+}
+li img{
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
 }
 li,
 p {
@@ -96,4 +111,8 @@ main{
 .modal #btn-close-modal:hover{
   color: #c31212;
   background-color: white;
+}
+form{
+  display: flex;
+  flex-direction: column;
 }

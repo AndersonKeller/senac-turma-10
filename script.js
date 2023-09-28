@@ -65,7 +65,9 @@
 // outra lista representando o carrinho
 import { data } from "./data.js";
 const main = document.querySelector("main");
-renderData()
+let newData = data
+// console.log(newData)
+renderData(newData)
 function cartUpdate(item){
     const cart = document.querySelector(".cart")
     const text = cart.children[0]
@@ -99,25 +101,88 @@ function removeItem(item){
     }
     
 }
-function renderData(){
+function renderData(list= []){
     const ul = document.querySelector(".products")
-    data.forEach((item)=>{
+    ul.innerHTML = ""
+    list.forEach((item)=>{
         const li = document.createElement("li")
-        li.innerText = item.name
+      
+        const p = document.createElement("p")
+        p.innerText = item.name
         const btnAdd = document.createElement("button")
         btnAdd.innerText = "Adicionar"
 
         btnAdd.addEventListener("click",()=>{
             cartUpdate(item)
         })
+        const link = document.createElement("a")
+        link.innerText = "veja mais"
+        link.addEventListener("click",()=>{
+            localStorage.setItem("@item-selecionado",JSON.stringify(item))
+            link.href = "./produto"
+        })
 
-        li.appendChild(btnAdd)
+        const img = document.createElement("img")
+        // console.log(img)
+        img.src = item.image
+        const div = document.createElement("div")
+        div.classList.add("card-texts")
+        div.append(p,link,btnAdd,)
+        li.append(img,div)
         ul.appendChild(li)
     })
+    
+    ul.insertAdjacentHTML("beforeend",`
+    <form>
+    <label for="input-name">Nome</label>
+    <input id="input-name" type="text" placeholder="insira um novo item">
+    <label for="input-price">Preço</label>
+    <input id="input-price" type="text" placeholder="insira o preço">
+    <button type="submit">Enviar</button>
+    </form>
+    `)
+    const form = document.querySelector("form")
+    form.addEventListener("submit",(event)=>{
+        event.preventDefault()
+        createItem(event.target)
+    })
 }
-
+function createItem(element){
+    //{ name: "Televisão", price: "2500" },
+    const name = document.querySelector("#input-name")
+    const price = document.querySelector("#input-price")
+    const obj = {
+        name: name.value,
+        price: price.value
+    }
+    newData.push(obj)
+    console.log(newData)
+    renderData(newData)
+}
 function openModal(item){
-
+    const body = document.body
+    
+    body.insertAdjacentHTML("afterbegin",
+    `
+    <div class="modal-wrapper">
+        <div class="modal">
+            <button id="btn-close-modal">X</button>
+            <p>Deseja realmente excluir esse item?${item.name}</p>
+            <button id="btn-remove-confirm">Excluir</button>
+        </div>
+    </div>
+    `)
+    const btnCloseModal = document.querySelector("#btn-close-modal")
+    btnCloseModal.addEventListener("click",()=>{
+        const wrapper = document.querySelector(".modal-wrapper")
+        wrapper.remove()
+    })
+    const btnRemoveItem = document.querySelector("#btn-remove-confirm")
+    btnRemoveItem.addEventListener("click",()=>{
+        removeItem(item)
+        const wrapper = document.querySelector(".modal-wrapper")
+        wrapper.remove()
+    })
     console.log(item,"modal")
     //button excluir
     //removeItem(item)
