@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+:root{
+    --yelloy-100: #e9da08;
+    --yelloy-200: #c8bc0f;
+    --yelloy-300: #a69115;
+
+    --grey-0: #0d0c0c;
+    --grey-200: #c1bebe69;
+    --grey-500: #757575;
+    --grey-900: #faf7f7;
+
+    --green-100: #0bb702;
+    --blue-100: #006afe;
+
+
+}
+body{
+    background-color: var(--grey-200);
+}
+button{
+    cursor: pointer;
+    
+}
+header{
+    background-color: var(--yelloy-100);
+    padding: 16px;
+}
+header section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+img{
+    width: 150px;
+}
+ul{
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 0;
+}
+.li-items{
+    display: flex;
+    width: 100%;
+    background-color: var(--grey-900);
+    border-radius: 8px;
+    padding: 12px;
+}
+.description,.images{
+    width: 50%;
+}
+.description{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.div-text-btn{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--grey-500);
+    padding: 12px 0;
+}
+.best-price{
+    background-color: var(--blue-100);
+    padding: 6px;
+    display: block;
+    color: var(--grey-900);
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+}
+.texts-prod{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.btn-add{
+    background-color: var(--green-100);
+    color: var(--grey-900);
+    border: none;
+    padding: 8px;
+}
