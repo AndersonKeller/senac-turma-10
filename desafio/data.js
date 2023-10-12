@@ -51,7 +51,7 @@ export const data = {
         },
         {
             "product": {
-                "id": 6717131,
+                "id": 6717132,
                 "name": "Lenovo IdeaPad 310 80UH0004BR Intel Core i7-6500U 2.5 GHz 8192 MB 1024 GB",
                 "images": [
                     "https://m.media-amazon.com/images/I/51ZBK1ZXkDL._AC_UF894,1000_QL80_.jpg"

@@ -16,7 +16,7 @@
 
     --green-100: #0bb702;
     --blue-100: #006afe;
-
+    --red-100: #d30f0f;
 
 }
 body{
@@ -89,4 +89,20 @@ ul{
     color: var(--grey-900);
     border: none;
     padding: 8px;
+}
+#cart-btn{
+    background-color: transparent;
+    border: none;
+}
+.position-cart{
+    position: relative;
+}
+.cart-number{
+    position: absolute;
+    bottom: 0;
+    background-color:var(--red-100);
+    padding: 4px;
+    border-radius: 50%;
+    color: var(--grey-900);
+    font-weight: 600;
 }
