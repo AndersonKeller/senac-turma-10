@@ -1,0 +1,13 @@
+.poke-card{
+    list-style: none;
+    border-radius: 16px;
+    background-color: #dbd6d6;
+    box-shadow: 0px 0px 2px 2x black;
+}
+ul{
+    display: flex;
+    flex-wrap: wrap;
+    width: 600px;
+    margin: 0 auto;
+    gap: 16px;
+}
